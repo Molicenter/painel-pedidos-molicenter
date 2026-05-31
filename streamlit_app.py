@@ -41,7 +41,7 @@ st.markdown("""
         display: flex;
         align-items: center;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-        border: 1px solid #0093E9;
+        border: 1px solid #0B3C5D;
     }
     .banner-logo {
         height: 42px;
