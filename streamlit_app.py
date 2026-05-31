@@ -170,7 +170,7 @@ row1_col1, row1_col2, row1_col3, row1_col4 = st.columns(4)
 with row1_col1:
     st.markdown(f"""
         <div class="card-pedido">
-            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400" class="card-img" alt="Folhagem">
+            <img src="https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400" class="card-img" alt="Folhagem">
             <a href="{LINKS_PEDIDOS['folhagem']}" target="_blank" class="btn-titulo">Folhagem</a>
             <div class="texto-horario">Seg a Sáb até 12:00hrs</div>
         </div>
@@ -194,7 +194,7 @@ with row1_col2:
 with row1_col3:
     st.markdown(f"""
         <div class="card-pedido">
-            <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400" class="card-img" alt="Açougue">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400" class="card-img" alt="Açougue">
             <a href="{LINKS_PEDIDOS['acougue']}" target="_blank" class="btn-titulo">Açougue</a>
             <div class="texto-horario">
                 Quartas-feira até 15:00hrs<br>Sábado até 15:00hrs
@@ -205,8 +205,8 @@ with row1_col3:
 with row1_col4:
     st.markdown(f"""
         <div class="card-pedido">
-            <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400" class="card-img" alt="Açougue Pioneiro">
-            <a href="{LINKS_PEDIDOS['acougue_pioneiro']}" target="_blank" class="btn-titulo">Açougue - Pioneiro</a>
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400" class="card-img" alt="Açougue Pioneiro">
+            <a href="{LINKS_PEDIDOS['acougue_pioneiro']}" target="_blank" class="btn-titulo">Pioneiro + BF + Paraná</a>
             <div class="texto-horario">Seg a Sex até 11:00hrs</div>
         </div>
     """, unsafe_allow_html=True)
