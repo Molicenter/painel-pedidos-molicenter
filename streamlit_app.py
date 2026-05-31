@@ -19,6 +19,8 @@ def get_base64_image(image_path):
 
 # Tenta carregar a imagem do passarinho salva na raiz do GitHub
 logo_base64 = get_base64_image("passaro_logo.png")
+foto_embalagens_base64 = get_base64_image("Embalagens.jpg")
+foto_materiaprima_base64 = get_base64_image("materiaprima.jpg")
 
 # Estilização CSS customizada
 st.markdown("""
@@ -230,7 +232,7 @@ with row2_col1:
 with row2_col2:
     st.markdown(f"""
         <div class="card-pedido">
-            <img src="C:\Users\Adriano R. Martins\OneDrive\Área de Trabalho\Molicenter\1.Programas\Pedidos\Fotos\Embalagens.jpg" class="card-img" alt="Embalagens">
+            <img src="data:image/jpeg;base64,{foto_embalagens_base64}" class="card-img" alt="Embalagens">
             <a href="{LINKS_PEDIDOS['embalagens']}" target="_blank" class="btn-titulo">Embalagens</a>
             <div class="texto-horario">Sexta-feira até as 17:30hrs</div>
         </div>
