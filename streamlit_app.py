@@ -33,7 +33,7 @@ st.markdown("""
     
     /* Banner Principal - Ajustado para o Azul Original */
     .banner-container {
-        background: linear-gradient(90deg, #0093E9 0%, #0077b6 100%);
+        background: linear-gradient(90deg, #0B3C5D 0%, #07263b 100%);
         padding: 12px 20px;
         border-radius: 8px;
         margin-bottom: 25px;
@@ -114,7 +114,7 @@ st.markdown("""
     
     /* Tarja de Sugestões - Ajustada para o Azul Original */
     .section-title-box {
-        background-color: #0093E9;
+        background-color: #0B3C5D;
         color: white;
         padding: 8px 15px;
         font-weight: bold;
@@ -122,7 +122,7 @@ st.markdown("""
         margin-bottom: 15px;
         font-size: 15px;
         text-align: center;
-        border: 1px solid #0082ce;
+        border: 1px solid #07263b;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     }
     
