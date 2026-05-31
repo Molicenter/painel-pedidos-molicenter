@@ -241,7 +241,7 @@ with row2_col2:
 with row2_col3:
     st.markdown(f"""
         <div class="card-pedido">
-            <img src="https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400" class="card-img" alt="Matéria Prima">
+            <img src="data:image/jpeg;base64,{foto_materiaprima_base64}" class="card-img" alt="Matéria Prima">
             <a href="{LINKS_PEDIDOS['materia_prima']}" target="_blank" class="btn-titulo">Matéria Prima</a>
             <div class="texto-horario">Até Sábado</div>
         </div>
