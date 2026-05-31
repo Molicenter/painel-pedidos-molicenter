@@ -162,7 +162,7 @@ with col2:
 with col3:
     st.markdown(f"""
         <div class="card-pedido">
-            <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400" class="card-img" alt="Açougue">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400" class="card-img" alt="Açougue">
             <a href="{LINKS_PEDIDOS['acougue']}" target="_blank" class="btn-titulo">Açougue</a>
             <div class="texto-horario">
                 Quartas-feira até 15:00hrs<br>
