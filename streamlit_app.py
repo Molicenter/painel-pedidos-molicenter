@@ -20,7 +20,7 @@ def get_base64_image(image_path):
 # Tenta carregar a imagem do passarinho salva na raiz do GitHub
 logo_base64 = get_base64_image("passaro_logo.png")
 
-# Estilização CSS customizada - Versão Compacta (Efeito Zoom 67%)
+# Estilização CSS customizada - Versão Confortável (4 Colunas)
 st.markdown("""
     <style>
     /* Reset e Background Escuro */
@@ -29,40 +29,40 @@ st.markdown("""
         color: #ffffff !important;
     }
     
-    /* Banner Principal Mais Compacto */
+    /* Banner Principal - Design Elegante */
     .banner-container {
         background: linear-gradient(90deg, #1e1e1e 0%, #2d2d2d 100%);
-        padding: 10px 18px;
-        border-radius: 6px;
-        margin-bottom: 15px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
         color: white;
         display: flex;
         align-items: center;
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
         border: 1px solid #3d3d3d;
     }
     .banner-logo {
-        height: 35px; /* Altura ideal compacta */
+        height: 42px;
         width: auto;
         object-fit: contain;
-        margin-right: 12px;
+        margin-right: 15px;
     }
     .banner-title {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 20px; /* Reduzido de 26px para equilíbrio */
+        font-size: 24px;
         font-weight: bold;
         color: #ffffff;
     }
     
-    /* Cards de Pedidos Compactados */
+    /* Cards de Pedidos Mais Robustos (4 Colunas) */
     .card-pedido {
         background-color: #1e1e1e;
-        border-radius: 8px;
-        padding: 10px; /* Reduzido de 15px */
+        border-radius: 10px;
+        padding: 15px;
         text-align: center;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-        transition: transform 0.2s, box-shadow 0.2s;
-        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        margin-bottom: 20px;
         border: 1px solid #2d2d2d;
         height: 100%;
         display: flex;
@@ -70,31 +70,31 @@ st.markdown("""
         justify-content: space-between;
     }
     .card-pedido:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
         border-color: #0093E9;
     }
     .card-img {
         width: 100%;
-        height: 95px; /* Altura otimizada para o efeito de Zoom 67% */
+        height: 130px; /* Aumentado para melhor resolução com 4 colunas */
         object-fit: cover;
-        border-radius: 5px;
-        margin-bottom: 8px;
+        border-radius: 6px;
+        margin-bottom: 12px;
         background-color: #2d2d2d;
-        opacity: 0.85;
+        opacity: 0.9;
     }
     
-    /* Botão/Label de Título Compacto */
+    /* Botão de Título Comercial */
     .btn-titulo {
         background-color: #ffffff;
         color: #121212 !important;
         font-weight: bold;
-        padding: 5px 8px; /* Reduzido para ficar slim */
+        padding: 7px 10px;
         border-radius: 4px;
         text-decoration: none;
         display: inline-block;
-        margin-bottom: 6px;
-        font-size: 12px; /* Fonte reduzida para não quebrar linha */
+        margin-bottom: 8px;
+        font-size: 13.5px;
         width: 100%;
         transition: background-color 0.2s;
     }
@@ -102,35 +102,35 @@ st.markdown("""
         background-color: #e0e0e0;
     }
     
-    /* Horários e Informações Menores */
+    /* Horários e Informações mais visíveis */
     .texto-horario {
-        font-size: 10.5px;
+        font-size: 11.5px;
         color: #cccccc;
         font-weight: 500;
-        line-height: 1.3;
+        line-height: 1.4;
     }
     
-    /* Seções Inferiores e Divisores Mais Finos */
+    /* Seções de Sugestões */
     .section-title-box {
         background-color: #2d2d2d;
         color: white;
-        padding: 5px 10px;
+        padding: 8px 15px;
         font-weight: bold;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        font-size: 13px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 15px;
         text-align: center;
         border: 1px solid #3d3d3d;
     }
     
     .divider-line {
-        border-top: 2px solid #3d3d3d;
-        margin: 12px 0;
+        border-top: 2px solid #2d2d2d;
+        margin: 15px 0;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Geração do Top Banner com Validação da Logo
+# Geração do Top Banner
 if logo_base64:
     header_html = f"""
         <div class="banner-container">
@@ -141,14 +141,14 @@ if logo_base64:
 else:
     header_html = """
         <div class="banner-container">
-            <span style="font-size: 24px; margin-right: 10px;">🛒</span>
+            <span style="font-size: 28px; margin-right: 12px;">🛒</span>
             <div class="banner-title">Gestão Pedidos - Molicenter</div>
         </div>
     """
 
 st.markdown(header_html, unsafe_allow_html=True)
 
-# --- LINKS DAS PLANILHAS REAIS CONFIGURADOS ---
+# --- LINKS DAS PLANILHAS CONFIGURADOS ---
 LINKS_PEDIDOS = {
     "folhagem": "https://docs.google.com/spreadsheets/d/1y1mCjctvQTwqvxhk67uYnSX4vs_SROAAa7-kZAz07jg/edit?gid=0#gid=0",
     "flv_normal": "https://docs.google.com/spreadsheets/d/1MROR0Tl__10OI--8-VqZdT5e1il64XSdwW3-xR23Cu8/edit?usp=drive_link",
@@ -163,10 +163,10 @@ LINKS_PEDIDOS = {
     "sugestao_acougue": "https://1drv.ms/x/s!Aub4upL5X9Diido2H0sInF2k7EArQQ?e=WEfvJU",
 }
 
-# --- LINHA 1 DE CARDS ---
-col1, col2, col3, col4, col5 = st.columns(5)
+# --- LINHA 1 DE CARDS (4 COLUNAS) ---
+row1_col1, row1_col2, row1_col3, row1_col4 = st.columns(4)
 
-with col1:
+with row1_col1:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400" class="card-img" alt="Folhagem">
@@ -175,70 +175,67 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-with col2:
+with row1_col2:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400" class="card-img" alt="FLV Normal">
             <a href="{LINKS_PEDIDOS['flv_normal']}" target="_blank" class="btn-titulo">FLV Normal</a>
             <div class="texto-horario">
-                Ter até 17:00h | Qui até 14:00h
+                Terças-feira até 17:00hrs<br>Quintas-feira até 14:00hrs
             </div>
-            <div style="margin-top: 8px;">
+            <div style="margin-top: 10px;">
                 <a href="{LINKS_PEDIDOS['flv_ofertas']}" target="_blank" class="btn-titulo">FLV Ofertas</a>
-                <div class="texto-horario">Qui até 14:00hrs</div>
+                <div class="texto-horario">Quintas-feira até 14:00hrs</div>
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-with col3:
+with row1_col3:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400" class="card-img" alt="Açougue">
             <a href="{LINKS_PEDIDOS['acougue']}" target="_blank" class="btn-titulo">Açougue</a>
             <div class="texto-horario">
-                Qua até 15:00hrs<br>
-                Sáb até 15:00hrs
+                Quartas-feira até 15:00hrs<br>Sábado até 15:00hrs
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-with col4:
+with row1_col4:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400" class="card-img" alt="Açougue Pioneiro">
-            <a href="{LINKS_PEDIDOS['acougue_pioneiro']}" target="_blank" class="btn-titulo" style="font-size: 10.5px;">Açougue - Pioneiro</a>
+            <a href="{LINKS_PEDIDOS['acougue_pioneiro']}" target="_blank" class="btn-titulo">Açougue - Pioneiro</a>
             <div class="texto-horario">Seg a Sex até 11:00hrs</div>
         </div>
     """, unsafe_allow_html=True)
 
-with col5:
+
+# --- LINHA 2 DE CARDS (4 COLUNAS) ---
+row2_col1, row2_col2, row2_col3, row2_col4 = st.columns(4)
+
+with row2_col1:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400" class="card-img" alt="Peças Açougue">
             <a href="{LINKS_PEDIDOS['pecas_acougue']}" target="_blank" class="btn-titulo">Peças Açougue</a>
             <div class="texto-horario">
-                Seg/Qua/Sex - Arapongas<br>
-                Ter/Qui/Sáb - Maringá
+                Seg / Qua e Sex - Arapongas até as 15:00h<br>
+                Ter / Qui e Sáb - Maringá até as 15:00h
             </div>
         </div>
     """, unsafe_allow_html=True)
 
-# Linha divisória
-st.markdown('<div class="divider-line"></div>', unsafe_allow_html=True)
-
-# --- LINHA 2 DE CARDS (Insumos e Sugestão de Pedidos) ---
-col_inf1, col_inf2, col_inf3, col_space, col_inf4 = st.columns([1, 1, 1, 0.1, 1.9])
-
-with col_inf1:
+with row2_col2:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400" class="card-img" alt="Embalagens">
             <a href="{LINKS_PEDIDOS['embalagens']}" target="_blank" class="btn-titulo">Embalagens</a>
-            <div class="texto-horario">Sexta-feira até as 17:30h</div>
+            <div class="texto-horario">Sexta-feira até as 17:30hrs</div>
         </div>
     """, unsafe_allow_html=True)
 
-with col_inf2:
+with row2_col3:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400" class="card-img" alt="Matéria Prima">
@@ -247,21 +244,24 @@ with col_inf2:
         </div>
     """, unsafe_allow_html=True)
 
-with col_inf3:
+with row2_col4:
     st.markdown(f"""
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400" class="card-img" alt="Padaria e Confeitaria">
-            <a href="{LINKS_PEDIDOS['padaria']}" target="_blank" class="btn-titulo">Padaria</a>
+            <a href="{LINKS_PEDIDOS['padaria']}" target="_blank" class="btn-titulo">Padaria e Confeitaria</a>
             <div class="texto-horario">Sábado</div>
         </div>
     """, unsafe_allow_html=True)
 
-# Espaço de separação mínimo
-with col_space:
-    st.write("")
 
-# Coluna da Direita: Sugestão de Pedidos
-with col_inf4:
+st.markdown('<div class="divider-line"></div>', unsafe_allow_html=True)
+
+
+# --- LINHA 3: SEÇÃO DE SUGESTÕES CENTRALIZADA (Layout 4 Colunas para Alinhamento) ---
+# Usamos colunas laterais vazias para centralizar o bloco de sugestões perfeitamente
+col_left, col_center, col_right = st.columns([0.5, 3, 0.5])
+
+with col_center:
     st.markdown('<div class="section-title-box">Sugestão de Pedidos</div>', unsafe_allow_html=True)
     sub_col1, sub_col2 = st.columns(2)
     
@@ -283,7 +283,7 @@ with col_inf4:
 
 # Rodapé informativo
 st.markdown("""
-    <div style="text-align: center; margin-top: 30px; color: #444444; font-size: 11px;">
+    <div style="text-align: center; margin-top: 40px; color: #555555; font-size: 11px;">
         Molicenter Supermercados © 2026 - Painel Web de Pedidos Centralizados
     </div>
 """, unsafe_allow_html=True)
