@@ -271,7 +271,7 @@ with col_center:
         st.markdown(f"""
             <div class="card-pedido">
                 <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400" class="card-img" alt="Hortifruti">
-                <a href="{LINKS_PEDIDOS['sugestao_hortifruti']}" target="_blank" class="btn-titulo" style="background-color: #0093E9; color: white !important;">Hortifruti</a>
+                <a href="{LINKS_PEDIDOS['sugestao_hortifruti']}" target="_blank" class="btn-titulo" style="background-color: #ffffff; color: white !important;">Hortifruti</a>
             </div>
         """, unsafe_allow_html=True)
         
@@ -279,7 +279,7 @@ with col_center:
         st.markdown(f"""
             <div class="card-pedido">
                 <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400" class="card-img" alt="Açougue">
-                <a href="{LINKS_PEDIDOS['sugestao_acougue']}" target="_blank" class="btn-titulo" style="background-color: #0093E9; color: white !important;">Açougue</a>
+                <a href="{LINKS_PEDIDOS['sugestao_acougue']}" target="_blank" class="btn-titulo" style="background-color: #ffffff; color: white !important;">Açougue</a>
             </div>
         """, unsafe_allow_html=True)
 
