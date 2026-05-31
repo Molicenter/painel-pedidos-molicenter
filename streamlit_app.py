@@ -205,7 +205,9 @@ with col_inf1:
         <div class="card-pedido">
             <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400" class="card-img" alt="Embalagens">
             <a href="{LINKS_PEDIDOS['embalagens']}" target="_blank" class="btn-titulo">Embalagens</a>
-        </div>
+             <div class="texto-horario">
+                Sexta-feira até as 17:30hrs<br>
+                    </div>
     """, unsafe_allow_html=True)
 
 with col_inf2:
