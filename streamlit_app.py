@@ -194,7 +194,7 @@ with row1_col2:
             </div>
             <div style="margin-top: 10px;">
                 <a href="{LINKS_PEDIDOS['flv_oriental']}" target="_blank" class="btn-titulo">FLV Oriental</a>
-                <div class="texto-horario">Quintas-feira até 14:00hrs</div>
+                <div class="texto-horario">Em construção</div>
         </div>
     """, unsafe_allow_html=True)
 
