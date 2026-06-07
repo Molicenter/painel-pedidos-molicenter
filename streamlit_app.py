@@ -157,6 +157,7 @@ LINKS_PEDIDOS = {
     "folhagem": "https://docs.google.com/spreadsheets/d/1y1mCjctvQTwqvxhk67uYnSX4vs_SROAAa7-kZAz07jg/edit?gid=0#gid=0",
     "flv_normal": "https://docs.google.com/spreadsheets/d/1MROR0Tl__10OI--8-VqZdT5e1il64XSdwW3-xR23Cu8/edit?usp=drive_link",
     "flv_ofertas": "https://docs.google.com/spreadsheets/d/1Ic_iNC34IQTUwZhN0qdf6bsTM-EjwshVnNlwjdnI8mI/edit?usp=drive_link",
+    "flv_oriental": "https://pedido-oriental.streamlit.app/",
     "acougue_adriano": "https://docs.google.com/spreadsheets/d/19e0N0FWVdrKtWMG-UroqwPpVKQOqgJ524bBAOuEcyBY/edit?gid=0#gid=0",
     "acougue_pioneiro": "https://docs.google.com/spreadsheets/d/1bBB75w4lshM9Xg70VCuJAzLASpYrp35zYDp8y2vB3Fc/edit?usp=drive_link",
     "pecas_acougue": "https://docs.google.com/spreadsheets/d/19e0N0FWVdrKtWMG-UroqwPpVKQOqgJ524bBAOuEcyBY/edit?gid=0#gid=0",
@@ -191,6 +192,9 @@ with row1_col2:
                 <a href="{LINKS_PEDIDOS['flv_ofertas']}" target="_blank" class="btn-titulo">FLV Ofertas</a>
                 <div class="texto-horario">Quintas-feira até 14:00hrs</div>
             </div>
+            <div style="margin-top: 10px;">
+                <a href="{LINKS_PEDIDOS['flv_oriental']}" target="_blank" class="btn-titulo">FLV Oriental</a>
+                <div class="texto-horario">Quintas-feira até 14:00hrs</div>
         </div>
     """, unsafe_allow_html=True)
 
