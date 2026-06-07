@@ -378,7 +378,7 @@ with col_center:
 # RODAPÉ
 # ─────────────────────────────────────────────
 st.markdown("""
-<div style="text-align:center; margin-top:40px; color:#555; font-size:11px;">
+<div style="text-align:center; margin-top:40px; color:#ffffff; font-size:11px;">
     Molicenter Supermercados © 2026 — Painel Web de Pedidos Centralizados
 </div>
 """, unsafe_allow_html=True)
