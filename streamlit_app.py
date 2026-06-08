@@ -69,7 +69,7 @@ CARDS_ROW1 = [
             {
                 "title": "FLV Oriental",
                 "link": "https://pedido-oriental.streamlit.app/",
-                "schedule": ["Em construção"]
+                "schedule": ["Quintas-feira até 14:00hrs"]
             },
         ]
     },
