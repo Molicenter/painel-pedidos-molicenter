@@ -93,7 +93,7 @@ ROW2_CARDS = [
         "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_ACOUGUE
     },
     {
-        "title": "Peças Açougue",
+        "title": "Peças Açougue - Manoel",
         "link": "https://acougue-pecas.streamlit.app/",
         "schedule": [
             "Seg / Qua / Sex — Arapongas até 15:00h",
