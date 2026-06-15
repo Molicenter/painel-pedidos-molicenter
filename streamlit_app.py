@@ -32,118 +32,95 @@ def img_tag(base64_str: str, mime: str, url_fallback: str, alt: str, css_class: 
     return f'<div class="{css_class} img-placeholder">📦</div>'
 
 # ─────────────────────────────────────────────
-# IMAGENS LOCAIS
+# IMAGENS LOCAIS E LINKS EXTERNOS (FALLBACK)
 # ─────────────────────────────────────────────
 logo_b64           = get_base64_image("passaro_logo.png")
 embalagens_b64     = get_base64_image("Embalagens.jpg")
 materiaprima_b64   = get_base64_image("materiaprima.jpg")
 pioneiros_b64      = get_base64_image("Pioneiros.jpg")
 
+IMG_FOLHAGEM = "https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400"
+IMG_FLV      = "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400"
+IMG_ORIENTAL = "https://images.unsplash.com/photo-1599339591465-9eb205aa105c?w=400"
+IMG_ACOUGUE  = "https://images.unsplash.com/photo-1544025162-d76694265947?w=400"
+IMG_PADARIA  = "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400"
+
 # ─────────────────────────────────────────────
-# DADOS DOS CARDS  ← único lugar para editar
+# DADOS DOS CARDS - ESTRUTURADOS EM 3 COLUNAS
 # ─────────────────────────────────────────────
-# Cada card é um dict:
-#   title, link, schedule (lista de strings), img_b64, img_mime, img_url, sub_cards
-# sub_cards: lista de dicts com title, link, schedule
-CARDS_ROW1 = [
+COL1_CARDS = [
     {
         "title": "Folhagem",
         "link": "https://pedidos-folhagem.streamlit.app/",
         "schedule": ["Seg a Sáb até 12:00hrs"],
-        "img_b64": "", "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400",
-        "sub_cards": []
+        "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_FOLHAGEM
     },
     {
         "title": "FLV Normal",
         "link": "https://pedidos-flv.streamlit.app/",
         "schedule": ["Terças-feira até 17:00hrs", "Quintas-feira até 14:00hrs"],
-        "img_b64": "", "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400",
-        "sub_cards": [
-            {
-                "title": "FLV Ofertas",
-                "link": "https://pedidos-flv-ofertas.streamlit.app/",
-                "schedule": ["Quintas-feira até 14:00hrs"]
-            },
-            {
-                "title": "FLV Oriental",
-                "link": "https://pedido-oriental.streamlit.app/",
-                "schedule": ["Quintas-feira até 14:00hrs"]
-            },
-        ]
+        "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_FLV
+    },
+    {
+        "title": "FLV Ofertas",
+        "link": "https://pedidos-flv-ofertas.streamlit.app/",
+        "schedule": ["Quintas-feira até 14:00hrs"],
+        "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_FLV  # Repete imagem do FLV
+    },
+    {
+        "title": "FLV Oriental",
+        "link": "https://pedido-oriental.streamlit.app/",
+        "schedule": ["Quintas-feira até 14:00hrs"],
+        "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_ORIENTAL
+    }
+]
+
+COL2_CARDS = [
+    {
+        "title": "Pioneiro + BF + Paraná",
+        "link": "https://acougue-especiais.streamlit.app/",
+        "schedule": ["Seg a Sex até 11:00hrs"],
+        "img_b64": pioneiros_b64, "img_mime": "image/jpeg", 
+        "img_url": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=400"
     },
     {
         "title": "Açougue Adriano",
         "link": "https://acougue-total.streamlit.app/",
         "schedule": ["Quartas-feira até 15:00hrs", "Sábado até 15:00hrs"],
-        "img_b64": "", "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400",
-        "sub_cards": [
-            {
-                "title": "Peças Açougue",
-                "link": "https://acougue-pecas.streamlit.app/",
-                "schedule": [
-                    "Seg / Qua / Sex — Arapongas até 15:00h",
-                    "Ter / Qui / Sáb — Maringá até 15:00h"
-                ]
-            }
-        ]
+        "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_ACOUGUE
     },
     {
-        "title": "Pioneiro + BF + Paraná",
-        "link": "https://acougue-especiais.streamlit.app/",
-        "schedule": ["Seg a Sex até 11:00hrs"],
-        "img_b64": pioneiros_b64, "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=400",
-        "sub_cards": []
-    },
+        "title": "Peças Açougue",
+        "link": "https://acougue-pecas.streamlit.app/",
+        "schedule": [
+            "Seg / Qua / Sex — Arapongas até 15:00h",
+            "Ter / Qui / Sáb — Maringá até 15:00h"
+        ],
+        "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_ACOUGUE  # Repete imagem do Açougue
+    }
 ]
 
-CARDS_ROW2 = [
+COL3_CARDS = [
     {
         "title": "Embalagens",
         "link": "https://docs.google.com/spreadsheets/d/1x2QjCgvjpBl5-QZAqZCNay7aoUvgohjJoAQFdGn4cfE/edit?gid=0#gid=0",
         "schedule": ["Sexta-feira até as 17:30hrs"],
-        "img_b64": embalagens_b64, "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400",
-        "sub_cards": []
-    },
-    {
-        "title": "Matéria Prima",
-        "link": "https://docs.google.com/spreadsheets/d/1WDZBbT1J-aSjGNXFfy9HbhKAmAhU5zquqRHYJUXpR0o/edit?gid=0#gid=0",
-        "schedule": ["Até Sábado"],
-        "img_b64": materiaprima_b64, "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=400",
-        "sub_cards": []
+        "img_b64": embalagens_b64, "img_mime": "image/jpeg", 
+        "img_url": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400"
     },
     {
         "title": "Padaria e Confeitaria",
         "link": "https://docs.google.com/spreadsheets/d/14nfvS6jRIJFdTgPpYDxUZNThLSBM4zASFXl_XnOLJOI/edit?gid=0#gid=0",
         "schedule": ["Sábado"],
-        "img_b64": "", "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400",
-        "sub_cards": []
-    },
-]
-
-CARDS_SUGESTOES = [
-    {
-        "title": "Hortifruti",
-        "link": "https://1drv.ms/x/s!Aub4upL5X9DiiMQk_TNnm9D1_s7p6A?e=dQbAKD",
-        "schedule": [],
-        "img_b64": "", "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400",
-        "sub_cards": []
+        "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_PADARIA
     },
     {
-        "title": "Açougue",
-        "link": "https://1drv.ms/x/c/e2d05ff992baf8e6/IQDm-LqS-V_QIIDiA3ICAAAAAf91damk1P4zL0WOZQMb5ys?e=AhVL9h",
-        "schedule": [],
-        "img_b64": "", "img_mime": "image/jpeg",
-        "img_url": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400",
-        "sub_cards": []
-    },
+        "title": "Matéria Prima",
+        "link": "https://docs.google.com/spreadsheets/d/1WDZBbT1J-aSjGNXFfy9HbhKAmAhU5zquqRHYJUXpR0o/edit?gid=0#gid=0",
+        "schedule": ["Até Sábado"],
+        "img_b64": materiaprima_b64, "img_mime": "image/jpeg", 
+        "img_url": "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=400"
+    }
 ]
 
 # ─────────────────────────────────────────────
@@ -191,7 +168,7 @@ st.markdown("""
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,.45);
     transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Isso cria o espaço curto entre os cards */
     border: 1px solid #2a2a2a;
     display: flex;
     flex-direction: column;
@@ -222,17 +199,6 @@ st.markdown("""
     font-size: 36px;
 }
 
-/* ── Sub-card (cards dentro de card) ── */
-.sub-card {
-    background-color: #242424;
-    border-radius: 8px;
-    padding: 10px;
-    border: 1px solid #333;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
 /* ── Botão principal ── */
 .btn-titulo {
     background-color: #ffffff;
@@ -260,27 +226,6 @@ st.markdown("""
     line-height: 1.5;
 }
 
-/* ── Seção sugestões ── */
-.section-title-box {
-    background: linear-gradient(90deg, #0B3C5D, #07263b);
-    color: #fff;
-    padding: 9px 16px;
-    font-weight: 700;
-    border-radius: 7px;
-    margin-bottom: 16px;
-    font-size: 15px;
-    text-align: center;
-    border: 1px solid #0e4a74;
-    box-shadow: 0 4px 10px rgba(0,0,0,.3);
-}
-
-/* ── Divider ── */
-.divider-line {
-    border: none;
-    border-top: 1px solid #2a2a2a;
-    margin: 20px 0;
-}
-
 /* ── Responsividade mobile ── */
 @media (max-width: 768px) {
     .banner-title { font-size: 16px; }
@@ -296,15 +241,6 @@ st.markdown("""
 def render_schedule(schedule: list[str]) -> str:
     return "<br>".join(schedule) if schedule else ""
 
-def render_sub_card(sc: dict) -> str:
-    sched_html = f'<div class="texto-horario">{render_schedule(sc["schedule"])}</div>' if sc.get("schedule") else ""
-    return f"""
-    <div class="sub-card">
-        <a href="{sc['link']}" target="_blank" class="btn-titulo">{sc['title']}</a>
-        {sched_html}
-    </div>
-    """
-
 def render_card(card: dict) -> str:
     img_html = img_tag(
         card.get("img_b64", ""),
@@ -317,14 +253,12 @@ def render_card(card: dict) -> str:
         f'<div class="texto-horario">{render_schedule(card["schedule"])}</div>'
         if card.get("schedule") else ""
     )
-    sub_html = "".join(render_sub_card(sc) for sc in card.get("sub_cards", []))
 
     return f"""
     <div class="card-pedido">
         {img_html}
         <a href="{card['link']}" target="_blank" class="btn-titulo">{card['title']}</a>
         {sched_html}
-        {sub_html}
     </div>
     """
 
@@ -344,35 +278,21 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# LINHA 1  (4 colunas)
+# LAYOUT EM 3 COLUNAS
 # ─────────────────────────────────────────────
-cols1 = st.columns(4)
-for col, card in zip(cols1, CARDS_ROW1):
-    with col:
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    for card in COL1_CARDS:
         st.markdown(render_card(card), unsafe_allow_html=True)
 
-st.markdown('<hr class="divider-line">', unsafe_allow_html=True)
-
-# ─────────────────────────────────────────────
-# LINHA 2  (3 colunas)
-# ─────────────────────────────────────────────
-cols2 = st.columns(3)
-for col, card in zip(cols2, CARDS_ROW2):
-    with col:
+with col2:
+    for card in COL2_CARDS:
         st.markdown(render_card(card), unsafe_allow_html=True)
 
-st.markdown('<hr class="divider-line">', unsafe_allow_html=True)
-
-# ─────────────────────────────────────────────
-# SEÇÃO SUGESTÕES
-# ─────────────────────────────────────────────
-_, col_center, _ = st.columns([0.5, 3, 0.5])
-with col_center:
-    st.markdown('<div class="section-title-box">📋 Sugestão de Pedidos</div>', unsafe_allow_html=True)
-    sub_cols = st.columns(len(CARDS_SUGESTOES))
-    for col, card in zip(sub_cols, CARDS_SUGESTOES):
-        with col:
-            st.markdown(render_card(card), unsafe_allow_html=True)
+with col3:
+    for card in COL3_CARDS:
+        st.markdown(render_card(card), unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
 # RODAPÉ
