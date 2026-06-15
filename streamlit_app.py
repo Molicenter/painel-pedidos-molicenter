@@ -69,7 +69,7 @@ COL1_CARDS = [
     },
     {
         "title": "FLV Oriental",
-        "link": "https://pedido-oriental.streamlit.app/",
+        "link": "https://pedidos-oriental.streamlit.app/",
         "schedule": ["Quintas-feira até 14:00hrs"],
         "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_ORIENTAL
     }
