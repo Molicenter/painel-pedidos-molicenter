@@ -41,7 +41,7 @@ pioneiros_b64      = get_base64_image("Pioneiros.jpg")
 
 IMG_FOLHAGEM = "https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400"
 IMG_FLV      = "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=400"
-IMG_ORIENTAL = "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400" # 🍣 Nova foto garantida para o Oriental
+IMG_ORIENTAL = "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400"
 IMG_ACOUGUE  = "https://images.unsplash.com/photo-1544025162-d76694265947?w=400"
 IMG_PADARIA  = "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400"
 
@@ -69,7 +69,7 @@ COL1_CARDS = [
     },
     {
         "title": "FLV Oriental",
-        "link": "https://pedidos-oriental.streamlit.app/",
+        "link": "https://pedido-oriental.streamlit.app/",
         "schedule": ["Quintas-feira até 14:00hrs"],
         "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_ORIENTAL
     }
@@ -124,7 +124,7 @@ COL3_CARDS = [
 ]
 
 # ─────────────────────────────────────────────
-# CSS - DESIGN MODERNO E COMPACTO
+# CSS - DESIGN MODERNO E EXPANDIDO
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -134,66 +134,66 @@ st.markdown("""
     color: #ffffff !important;
 }
 
-/* ── Ajusta os espaços padrão do Streamlit para caber tudo ── */
+/* ── Simulando o efeito de Zoom 90% ao usar melhor o espaço ── */
 .block-container {
     padding-top: 2rem !important;
     padding-bottom: 1rem !important;
-    max-width: 1400px !important;
+    max-width: 92% !important; /* Estica o painel para ocupar 92% da tela */
 }
 
 /* ── Banner Moderno ── */
 .banner-container {
     background: linear-gradient(135deg, #07263b 0%, #0e4a74 100%);
-    padding: 10px 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     box-shadow: 0 4px 15px rgba(0, 147, 233, 0.15);
     border: 1px solid rgba(255,255,255,0.1);
 }
 .banner-logo {
-    height: 38px;
+    height: 44px;
     width: auto;
     object-fit: contain;
 }
 .banner-title {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    font-size: 20px;
+    font-size: 24px; /* Aumentado */
     font-weight: 800;
     color: #fff;
     letter-spacing: 0.5px;
 }
 
-/* ── Estilo do Card (Quadrado mais compacto) ── */
+/* ── Estilo do Card ── */
 .card-pedido {
     background: rgba(30, 30, 30, 0.6);
     backdrop-filter: blur(8px);
-    border-radius: 10px;
-    padding: 10px; /* Reduzido para ganhar espaço */
+    border-radius: 12px;
+    padding: 14px; /* Aumentado */
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    margin-bottom: 12px; /* Margem curta entre os cards */
+    margin-bottom: 16px; 
     border: 1px solid rgba(255,255,255,0.08);
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     transition: all 0.25s ease;
 }
 .card-pedido:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 147, 233, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 147, 233, 0.25);
     border-color: rgba(0, 147, 233, 0.5);
     background: rgba(40, 40, 40, 0.8);
 }
 
-/* ── Imagem mais estreita para caber na tela ── */
+/* ── Imagem mais proporcional ── */
 .card-img {
     width: 100%;
-    height: 90px; /* Reduzido para economizar altura */
+    height: 120px; /* Mais alta, parecendo que o zoom está maior */
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
     opacity: 0.9;
     transition: opacity 0.3s;
 }
@@ -201,13 +201,13 @@ st.markdown("""
     opacity: 1.0;
 }
 
-/* ── Botão principal (Fonte maior, botão mais "gordinho") ── */
+/* ── Botão principal ── */
 .btn-titulo {
     background-color: #ffffff;
     color: #0B3C5D !important;
     font-weight: 800;
-    font-size: 15px; /* Fonte aumentada */
-    padding: 8px 10px;
+    font-size: 16px; /* Fonte Maior */
+    padding: 10px 12px;
     border-radius: 6px;
     text-decoration: none;
     display: block;
@@ -222,11 +222,11 @@ st.markdown("""
     transform: scale(1.02);
 }
 
-/* ── Texto de Horários (Fonte legível mas compacta) ── */
+/* ── Texto de Horários ── */
 .texto-horario {
-    font-size: 12.5px; /* Ligeiramente maior */
+    font-size: 13px; /* Aumentado para acompanhar o resto */
     color: #b0b0b0;
-    line-height: 1.3;
+    line-height: 1.4;
     font-weight: 500;
 }
 
@@ -282,7 +282,7 @@ st.markdown(f"""
 # ─────────────────────────────────────────────
 # LAYOUT EM 3 COLUNAS
 # ─────────────────────────────────────────────
-col1, col2, col3 = st.columns(3, gap="medium")
+col1, col2, col3 = st.columns(3, gap="large")
 
 with col1:
     for card in COL1_CARDS:
@@ -300,7 +300,7 @@ with col3:
 # RODAPÉ
 # ─────────────────────────────────────────────
 st.markdown("""
-<div style="text-align:center; margin-top:20px; color:#ffffff; font-size:12px; font-weight: 500;">
+<div style="text-align:center; margin-top:20px; color:#666666; font-size:12px; font-weight: 500;">
     Molicenter Supermercados © 2026 — Painel Web de Pedidos Centralizados
 </div>
 """, unsafe_allow_html=True)
