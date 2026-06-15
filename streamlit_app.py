@@ -313,7 +313,7 @@ for col, card in zip(row1_cols, ROW1_CARDS):
 st.write("<br>", unsafe_allow_html=True)
 
 # ── LINHA 2: SETOR DE PROTEÍNAS / AÇOUGUE (3 COLUNAS) ──
-st.markdown('<div class="linha-titulo-sec">🍖 Setor Açougue e Aves</div>', unsafe_allow_html=True)
+st.markdown('<div class="linha-titulo-sec">🥩 Setor Açougue e Aves</div>', unsafe_allow_html=True)
 row2_cols = st.columns(3, gap="large")
 for col, card in zip(row2_cols, ROW2_CARDS):
     with col:
