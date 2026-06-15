@@ -103,20 +103,20 @@ COL2_CARDS = [
 COL3_CARDS = [
     {
         "title": "Embalagens",
-        "link": "https://docs.google.com/spreadsheets/d/1x2QjCgvjpBl5-QZAqZCNay7aoUvgohjJoAQFdGn4cfE/edit?gid=0#gid=0",
+        "link": "https://pedidos-embalagem.streamlit.app/",
         "schedule": ["Sexta-feira até as 17:30hrs"],
         "img_b64": embalagens_b64, "img_mime": "image/jpeg", 
         "img_url": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400"
     },
     {
         "title": "Padaria e Confeitaria",
-        "link": "https://docs.google.com/spreadsheets/d/14nfvS6jRIJFdTgPpYDxUZNThLSBM4zASFXl_XnOLJOI/edit?gid=0#gid=0",
+        "link": "https://pedidos-padariaconfeitaria.streamlit.app/",
         "schedule": ["Sábado"],
         "img_b64": "", "img_mime": "image/jpeg", "img_url": IMG_PADARIA
     },
     {
         "title": "Matéria Prima",
-        "link": "https://docs.google.com/spreadsheets/d/1WDZBbT1J-aSjGNXFfy9HbhKAmAhU5zquqRHYJUXpR0o/edit?gid=0#gid=0",
+        "link": "https://pedidos-materiaprima.streamlit.app/",
         "schedule": ["Até Sábado"],
         "img_b64": materiaprima_b64, "img_mime": "image/jpeg", 
         "img_url": "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=400"
