@@ -46,9 +46,11 @@ IMG_ACOUGUE  = "https://images.unsplash.com/photo-1544025162-d76694265947?w=400"
 IMG_PADARIA  = "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400"
 
 # ─────────────────────────────────────────────
-# DADOS DOS CARDS - ESTRUTURADOS EM 3 COLUNAS
+# DADOS DOS CARDS - ORGANIZADOS POR LINHAS (ROWS)
 # ─────────────────────────────────────────────
-COL1_CARDS = [
+
+# LINHA 1: Hortifruti (4 Colunas)
+ROW1_CARDS = [
     {
         "title": "Folhagem",
         "link": "https://pedidos-folhagem.streamlit.app/",
@@ -75,7 +77,8 @@ COL1_CARDS = [
     }
 ]
 
-COL2_CARDS = [
+# LINHA 2: Açougue e Proteínas (3 Colunas)
+ROW2_CARDS = [
     {
         "title": "Pioneiro + BF + Paraná",
         "link": "https://acougue-especiais.streamlit.app/",
@@ -100,7 +103,8 @@ COL2_CARDS = [
     }
 ]
 
-COL3_CARDS = [
+# LINHA 3: Demais Setores e Suprimentos (3 Colunas)
+ROW3_CARDS = [
     {
         "title": "Embalagens",
         "link": "https://pedidos-embalagem.streamlit.app/",
@@ -124,7 +128,7 @@ COL3_CARDS = [
 ]
 
 # ─────────────────────────────────────────────
-# CSS - DESIGN MODERNO E EXPANDIDO
+# CSS - EQUILÍBRIO VISUAL E ALINHAMENTO GERAL
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -134,14 +138,14 @@ st.markdown("""
     color: #ffffff !important;
 }
 
-/* ── Simulando o efeito de Zoom 90% ao usar melhor o espaço ── */
+/* ── Controle de Largura Máxima da Janela (Simulação de Escala Ampliada) ── */
 .block-container {
-    padding-top: 2rem !important;
+    padding-top: 1.5rem !important;
     padding-bottom: 1rem !important;
-    max-width: 92% !important; /* Estica o painel para ocupar 92% da tela */
+    max-width: 94% !important;
 }
 
-/* ── Banner Moderno ── */
+/* ── Banner Superior ── */
 .banner-container {
     background: linear-gradient(135deg, #07263b 0%, #0e4a74 100%);
     padding: 12px 24px;
@@ -154,31 +158,31 @@ st.markdown("""
     border: 1px solid rgba(255,255,255,0.1);
 }
 .banner-logo {
-    height: 44px;
+    height: 40px;
     width: auto;
     object-fit: contain;
 }
 .banner-title {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    font-size: 24px; /* Aumentado */
+    font-size: 22px;
     font-weight: 800;
     color: #fff;
     letter-spacing: 0.5px;
 }
 
-/* ── Estilo do Card ── */
+/* ── Grid e Estrutura dos Cards ── */
 .card-pedido {
     background: rgba(30, 30, 30, 0.6);
     backdrop-filter: blur(8px);
     border-radius: 12px;
-    padding: 14px; /* Aumentado */
+    padding: 12px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     margin-bottom: 16px; 
     border: 1px solid rgba(255,255,255,0.08);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     transition: all 0.25s ease;
 }
 .card-pedido:hover {
@@ -188,10 +192,10 @@ st.markdown("""
     background: rgba(40, 40, 40, 0.8);
 }
 
-/* ── Imagem mais proporcional ── */
+/* ── Altura Controlada das Imagens ── */
 .card-img {
     width: 100%;
-    height: 120px; /* Mais alta, parecendo que o zoom está maior */
+    height: 110px; /* Altura ideal balanceada para caber tudo */
     object-fit: cover;
     border-radius: 8px;
     opacity: 0.9;
@@ -201,13 +205,13 @@ st.markdown("""
     opacity: 1.0;
 }
 
-/* ── Botão principal ── */
+/* ── Botões Brancos de Título ── */
 .btn-titulo {
     background-color: #ffffff;
     color: #0B3C5D !important;
     font-weight: 800;
-    font-size: 16px; /* Fonte Maior */
-    padding: 10px 12px;
+    font-size: 15px;
+    padding: 8px 12px;
     border-radius: 6px;
     text-decoration: none;
     display: block;
@@ -219,18 +223,34 @@ st.markdown("""
 .btn-titulo:hover {
     background-color: #e0f2ff;
     color: #07263b !important;
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
-/* ── Texto de Horários ── */
+/* ── Formatação de Texto de Horários ── */
 .texto-horario {
-    font-size: 13px; /* Aumentado para acompanhar o resto */
+    font-size: 12.5px;
     color: #b0b0b0;
     line-height: 1.4;
     font-weight: 500;
+    min-height: 36px; /* Mantém os botões alinhados caso falte linha de texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ── Ocultar Menu Streamlit ── */
+/* ── Elementos Avançados de Layout das Colunas ── */
+.linha-titulo-sec {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0093E9;
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-left: 3px solid #0093E9;
+    padding-left: 8px;
+}
+
+/* Ocultar Menu Nativo */
 #MainMenu {visibility: hidden;}
 header {visibility: hidden;}
 footer {visibility: hidden;}
@@ -253,7 +273,7 @@ def render_card(card: dict) -> str:
     )
     sched_html = (
         f'<div class="texto-horario">{render_schedule(card["schedule"])}</div>'
-        if card.get("schedule") else ""
+        if card.get("schedule") else '<div class="texto-horario">-</div>'
     )
 
     return f"""
@@ -265,7 +285,7 @@ def render_card(card: dict) -> str:
     """
 
 # ─────────────────────────────────────────────
-# BANNER
+# BANNER PRINCIPAL
 # ─────────────────────────────────────────────
 if logo_b64:
     logo_src = f'<img src="data:image/png;base64,{logo_b64}" class="banner-logo" alt="Logo Molicenter">'
@@ -280,27 +300,39 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# LAYOUT EM 3 COLUNAS
+# EXECUÇÃO DO NOVO LAYOUT POR LINHAS (ROWS)
 # ─────────────────────────────────────────────
-col1, col2, col3 = st.columns(3, gap="large")
 
-with col1:
-    for card in COL1_CARDS:
+# ── LINHA 1: SETOR HORTIFRUTI (4 COLUNAS) ──
+st.markdown('<div class="linha-titulo-sec">🥦 Setor Hortifruti (FLV)</div>', unsafe_allow_html=True)
+row1_cols = st.columns(4, gap="medium")
+for col, card in zip(row1_cols, ROW1_CARDS):
+    with col:
         st.markdown(render_card(card), unsafe_allow_html=True)
 
-with col2:
-    for card in COL2_CARDS:
+st.write("<br>", unsafe_allow_html=True)
+
+# ── LINHA 2: SETOR DE PROTEÍNAS / AÇOUGUE (3 COLUNAS) ──
+st.markdown('<div class="linha-titulo-sec">🍖 Setor Açougue e Aves</div>', unsafe_allow_html=True)
+row2_cols = st.columns(3, gap="large")
+for col, card in zip(row2_cols, ROW2_CARDS):
+    with col:
         st.markdown(render_card(card), unsafe_allow_html=True)
 
-with col3:
-    for card in COL3_CARDS:
+st.write("<br>", unsafe_allow_html=True)
+
+# ── LINHA 3: OUTROS SETORES / SUPRIMENTOS (3 COLUNAS) ──
+st.markdown('<div class="linha-titulo-sec">📦 Outros Setores e Logística</div>', unsafe_allow_html=True)
+row3_cols = st.columns(3, gap="large")
+for col, card in zip(row3_cols, ROW3_CARDS):
+    with col:
         st.markdown(render_card(card), unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
 # RODAPÉ
 # ─────────────────────────────────────────────
 st.markdown("""
-<div style="text-align:center; margin-top:20px; color:#666666; font-size:12px; font-weight: 500;">
+<div style="text-align:center; margin-top:30px; color:#555555; font-size:12px; font-weight: 500;">
     Molicenter Supermercados © 2026 — Painel Web de Pedidos Centralizados
 </div>
 """, unsafe_allow_html=True)
