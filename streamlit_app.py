@@ -229,7 +229,7 @@ st.markdown("""
 /* ── Formatação de Texto de Horários ── */
 .texto-horario {
     font-size: 12.5px;
-    color: #b0b0b0;
+    color: #ffffff;
     line-height: 1.4;
     font-weight: 500;
     min-height: 36px; /* Mantém os botões alinhados caso falte linha de texto */
